@@ -12,7 +12,7 @@ pool:
 steps:
 - task: Maven@3
   inputs:
-    mavenPomFile: 'TanushreeMisra.AzureDemo/pom.xml'
+    mavenPomFile: 'TanushreeMisra/AzureDemo/UserLogin//pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
