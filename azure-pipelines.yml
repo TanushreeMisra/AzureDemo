@@ -1,4 +1,13 @@
 # Maven
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'DemoUserPro - Azure'
+    azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Build services'
+    additionalImageTags: '$(Build.BuildNumber)'
+    includeLatestTag: true
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
