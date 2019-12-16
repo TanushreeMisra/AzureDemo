@@ -27,5 +27,5 @@ steps:
     repository: 'awsdemo'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
-    ContainerRegistry: '{"loginServer":"localregistry.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/LocalRegistry"}'
+    ContainerRegistry: 'panduDockerReg'
 
