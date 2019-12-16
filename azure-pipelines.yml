@@ -27,7 +27,7 @@ steps:
   inputs:
     sourceFolder: /home/vsts/work/1/s/UserLogin/src/target/UserLogin.war
     overWrite: true
-    targetFolder: /var/lib/docker/tmp/
+    targetFolder: '$(Build.StagingDirectory)'
     #cleanTargetFolder: false # Optional
     #contents: '**'
     #flattenFolders: false # Optional
