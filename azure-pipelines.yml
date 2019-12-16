@@ -25,7 +25,16 @@ steps:
   displayName: Build an image
   inputs:
     repository: 'awsdemo'
-    command: 'buildAndPush'
+    command: 'build'
     Dockerfile: 'Dockerfile'
     ContainerRegistry: 'panduDockerReg'
+
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial(1)(d74e399a-93c6-483d-b3e3-7942987f850d)'
+    azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
+    dockerComposeFile: 'docker-compose.yml'
+    action: 'Build services'
+
 
