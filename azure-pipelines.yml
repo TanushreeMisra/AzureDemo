@@ -21,18 +21,6 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-# Copy files
-# Copy files from a source folder to a target folder using patterns matching file paths (not folder paths)
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: /home/vsts/work/1/s/UserLogin/src/target/UserLogin.war
-    overWrite: true
-    targetFolder: '$(Build.StagingDirectory)'
-    #cleanTargetFolder: false # Optional
-    #contents: '**'
-    #flattenFolders: false # Optional
-    #preserveTimestamp: false # Optional
-
 - task: Docker@2
   displayName: Build an image
   inputs:
