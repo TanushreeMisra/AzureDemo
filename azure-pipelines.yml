@@ -25,5 +25,5 @@ steps:
   displayName: Build an image
   inputs:
     repository: 'awsdemo'
-    command: build
+    command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
