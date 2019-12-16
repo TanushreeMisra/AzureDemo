@@ -22,12 +22,9 @@ steps:
     goals: 'package'
 
 
-- task: DockerCompose@0
+- task: Docker@2
+  displayName: Build an image
   inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Free Trial(d74e399a-93c6-483d-b3e3-7942987f850d)'
-    azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
-    dockerComposeFile: 'docker-compose.yml'
-    action: 'Build services'
-    additionalImageTags: '$(Build.BuildNumber)'
-    includeLatestTag: true
+    repository: $(imageName)
+    command: build
+    Dockerfile: 'Dockerfile'
