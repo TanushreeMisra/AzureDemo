@@ -4,4 +4,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: azureDemo/latest
+    image: awsdemo:latest
