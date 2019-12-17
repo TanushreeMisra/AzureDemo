@@ -24,7 +24,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: 'awsdemo'
+    repository: 'pandutatikonda'
     command: 'build'
     Dockerfile: 'Dockerfile'
     ContainerRegistry: 'panduDockerReg'
