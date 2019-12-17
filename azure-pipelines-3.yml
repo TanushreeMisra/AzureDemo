@@ -31,6 +31,6 @@ steps:
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
-    dockerComposeFile: '**/docker-compose.yml'
+    dockerComposeFile: 'docker-compose.yml'
     action: 'Run a specific service'
     serviceName: 'docker pull dockeruserdemo.azurecr.io/awsdemo:latest'
