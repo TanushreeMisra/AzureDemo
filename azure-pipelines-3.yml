@@ -36,4 +36,15 @@ steps:
     azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
     dockerComposeFile: 'docker-compose.yml'
     action: 'Run services'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 - task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
