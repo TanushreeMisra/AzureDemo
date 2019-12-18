@@ -29,10 +29,4 @@ steps:
     azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
     dockerComposeFile: 'docker-compose.yml'
     action: 'Build services'
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Free Trial(d74e399a-93c6-483d-b3e3-7942987f850d)'
-    azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
-    dockerComposeFile: 'docker-compose.yml'
-    action: 'Run services'
+
