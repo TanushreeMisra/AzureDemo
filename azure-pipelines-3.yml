@@ -35,6 +35,7 @@ steps:
     azureSubscription: 'Free Trial(d74e399a-93c6-483d-b3e3-7942987f850d)'
     azureContainerRegistry: '{"loginServer":"dockeruserdemo.azurecr.io", "id" : "/subscriptions/d74e399a-93c6-483d-b3e3-7942987f850d/resourceGroups/demouserpro-rg/providers/Microsoft.ContainerRegistry/registries/dockerUserDemo"}'
     dockerComposeFile: 'docker-compose.yml'
+    ports: 80
     action: 'Run services'
 - task: ArchiveFiles@2
   inputs:
