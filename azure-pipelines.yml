@@ -21,13 +21,11 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'Free Trial(9fbf3040-61af-4df0-b41d-4a34667d3240)'
     azureContainerRegistry: '{"loginServer":"azuretcscontainer.azurecr.io", "id" : "/subscriptions/9fbf3040-61af-4df0-b41d-4a34667d3240/resourceGroups/azuretcsteam/providers/Microsoft.ContainerRegistry/registries/azuretcsContainer"}'
-    dockerComposeFile: 'docker-compose.yml'
+    dockerComposeFile: '**/docker-compose.yml'
     action: 'Build services'
-
 
