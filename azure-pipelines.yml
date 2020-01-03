@@ -37,11 +37,24 @@ steps:
     dockerComposeFile: 'docker-compose.yml'
     action: 'Push services'
 
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: 'AzureConnection'
+    Action: 'Start Azure App Service'
+    WebAppName: 'AzurePOC-webapp'
+
 - task: AzureRmWebAppDeployment@4
   inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Free Trial(9fbf3040-61af-4df0-b41d-4a34667d3240)'
-        appType: 'webAppContainer'
-        WebAppName: 'AzurePOC-webapp'
-        DockerNamespace: 'azuretcsContainer'
-        DockerRepository: 'azuredemo'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'AzureConnection'
+    appType: 'webAppContainer'
+    WebAppName: 'AzurePOC-webapp'
+    DockerNamespace: 'azuretcscontainer.azurecr.io'
+    DockerRepository: 'azuredemo'
+    DockerImageTag: 'latest'
+
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: 'AzureConnection'
+    Action: 'Stop Azure App Service'
+    WebAppName: 'AzurePOC-webapp'
