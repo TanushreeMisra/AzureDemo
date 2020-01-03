@@ -8,7 +8,7 @@ RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
 
 
-FROM tomcat8
+FROM tomcat:8.5.50
 
 ADD ./UserLogin/src/target/*.war /usr/local/tomcat/webapps
 
