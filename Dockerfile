@@ -27,12 +27,12 @@ ENV TOMCAT_VERSION 8.5.50
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-v$TOMCAT_VERSION.tar.gz
 
 RUN set -x \
-    && curl -fSL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
-    && curl -fSL "$TOMCAT_TGZ_URL.asc" -o tomcat.tar.gz.asc \
-    && gpg --verify tomcat.tar.gz.asc \
-    && tar -xvf tomcat.tar.gz --strip-components=1 \
+    && curl -fSL "$TOMCAT_TGZ_URL" -o apache-tomcat*.tar.gz \
+    && curl -fSL "$TOMCAT_TGZ_URL.asc" -o apache-tomcat*.tar.gz.asc \
+    && gpg --verify apache-tomcat*.tar.gz.asc \
+    && tar -xvf apache-tomcat*.tar.gz --strip-components=1 \
     && rm bin/*.bat \
-    && rm tomcat.tar.gz*
+    && rm apache-tomcat*.tar.gz*
 
 ADD ./target/*.war $CATALINA_HOME/webapps/
 
