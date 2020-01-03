@@ -36,3 +36,12 @@ steps:
     azureContainerRegistry: '{"loginServer":"azuretcscontainer.azurecr.io", "id" : "/subscriptions/9fbf3040-61af-4df0-b41d-4a34667d3240/resourceGroups/azuretcsteam/providers/Microsoft.ContainerRegistry/registries/azuretcsContainer"}'
     dockerComposeFile: 'docker-compose.yml'
     action: 'Push services'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Free Trial(9fbf3040-61af-4df0-b41d-4a34667d3240)'
+        appType: 'webAppContainer'
+        WebAppName: 'AzurePOC-webapp'
+        DockerNamespace: 'azuretcsContainer'
+        DockerRepository: 'azuredemo'
