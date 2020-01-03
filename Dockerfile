@@ -8,17 +8,9 @@ RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
 
 
-ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.50
-ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-v$TOMCAT_VERSION.tar.gz
+FROM tomcat8
 
-RUN set -x \
-    && curl -fSL "$TOMCAT_TGZ_URL" -o tomcat.tar.gz \
-    && tar -xvf tomcat.tar.gz --strip-components=1 \
-    && rm bin/*.bat \
-    && rm tomcat.tar.gz*
-
-ADD ./target/*.war $CATALINA_HOME/webapps/
+ADD ./UserLogin/src/target/*.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
