@@ -40,7 +40,7 @@ steps:
 - task: AzureAppServiceManage@0
   inputs:
     azureSubscription: 'AzureConnection'
-    Action: 'Start Azure App Service'
+    Action: 'Stop Azure App Service'
     WebAppName: 'AzurePOC-webapp'
 
 - task: AzureRmWebAppDeployment@4
@@ -56,5 +56,5 @@ steps:
 - task: AzureAppServiceManage@0
   inputs:
     azureSubscription: 'AzureConnection'
-    Action: 'Stop Azure App Service'
+    Action: 'Start Azure App Service'
     WebAppName: 'AzurePOC-webapp'
